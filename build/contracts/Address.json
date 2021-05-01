@@ -1,0 +1,835 @@
+{
+  "contractName": "Address",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Utility library of inline functions on addresses\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"@0xsequence/erc-1155/contracts/utils/Address.sol\":\"Address\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@0xsequence/erc-1155/contracts/utils/Address.sol\":{\"keccak256\":\"0xdee6d7b96529262ec172868deab6c3d1e26d0bc7eab0330319ca243bbd3bde8d\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://629e025c2b84b270fba6f534a609fff699f1b88b325fd9516088dc0b7548848c\",\"dweb:/ipfs/QmTX9RNQK5xfHUGEp2RDNNnJnC39e8MaRywG9VgQq9MBBT\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220308a43bbffa4fdae89bcd1bac0c961784b61f57bea1b43610edda70ea999894264736f6c63430007040033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220308a43bbffa4fdae89bcd1bac0c961784b61f57bea1b43610edda70ea999894264736f6c63430007040033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "124:856:22:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "124:856:22:-:0;;;;;;;;",
+  "source": "pragma solidity 0.7.4;\n// SPDX-License-Identifier: UNLICENSED\n\n\n/**\n * Utility library of inline functions on addresses\n */\nlibrary Address {\n\n  // Default hash for EOA accounts returned by extcodehash\n  bytes32 constant internal ACCOUNT_HASH = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;\n\n  /**\n   * Returns whether the target address is a contract\n   * @dev This function will return false if invoked during the constructor of a contract.\n   * @param _address address of the account to check\n   * @return Whether the target address is a contract\n   */\n  function isContract(address _address) internal view returns (bool) {\n    bytes32 codehash;\n\n    // Currently there is no better way to check if there is a contract in an address\n    // than to check the size of the code at that address or if it has a non-zero code hash or account hash\n    assembly { codehash := extcodehash(_address) }\n    return (codehash != 0x0 && codehash != ACCOUNT_HASH);\n  }\n}",
+  "sourcePath": "@0xsequence\\erc-1155\\contracts\\utils\\Address.sol",
+  "ast": {
+    "absolutePath": "@0xsequence/erc-1155/contracts/utils/Address.sol",
+    "exportedSymbols": {
+      "Address": [
+        3161
+      ]
+    },
+    "id": 3162,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3134,
+        "literals": [
+          "solidity",
+          "0.7",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:22:22"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 3135,
+          "nodeType": "StructuredDocumentation",
+          "src": "64:59:22",
+          "text": " Utility library of inline functions on addresses"
+        },
+        "fullyImplemented": true,
+        "id": 3161,
+        "linearizedBaseContracts": [
+          3161
+        ],
+        "name": "Address",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 3138,
+            "mutability": "constant",
+            "name": "ACCOUNT_HASH",
+            "nodeType": "VariableDeclaration",
+            "scope": 3161,
+            "src": "204:107:22",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 3136,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "204:7:22",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307863356432343630313836663732333363393237653764623264636337303363306535303062363533636138323237336237626661643830343564383561343730",
+              "id": 3137,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "245:66:22",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_89477152217924674838424037953991966239322087453347756267410168184682657981552_by_1",
+                "typeString": "int_const 8947...(69 digits omitted)...1552"
+              },
+              "value": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 3159,
+              "nodeType": "Block",
+              "src": "647:331:22",
+              "statements": [
+                {
+                  "assignments": [
+                    3147
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3147,
+                      "mutability": "mutable",
+                      "name": "codehash",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 3159,
+                      "src": "653:16:22",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 3146,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "653:7:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3148,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "653:16:22"
+                },
+                {
+                  "AST": {
+                    "nodeType": "YulBlock",
+                    "src": "879:37:22",
+                    "statements": [
+                      {
+                        "nodeType": "YulAssignment",
+                        "src": "881:33:22",
+                        "value": {
+                          "arguments": [
+                            {
+                              "name": "_address",
+                              "nodeType": "YulIdentifier",
+                              "src": "905:8:22"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "extcodehash",
+                            "nodeType": "YulIdentifier",
+                            "src": "893:11:22"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "893:21:22"
+                        },
+                        "variableNames": [
+                          {
+                            "name": "codehash",
+                            "nodeType": "YulIdentifier",
+                            "src": "881:8:22"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "evmVersion": "istanbul",
+                  "externalReferences": [
+                    {
+                      "declaration": 3141,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "905:8:22",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 3147,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "881:8:22",
+                      "valueSize": 1
+                    }
+                  ],
+                  "id": 3149,
+                  "nodeType": "InlineAssembly",
+                  "src": "870:46:22"
+                },
+                {
+                  "expression": {
+                    "components": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 3156,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "commonType": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          },
+                          "id": 3152,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "id": 3150,
+                            "name": "codehash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3147,
+                            "src": "929:8:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "!=",
+                          "rightExpression": {
+                            "hexValue": "307830",
+                            "id": 3151,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "941:3:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0x0"
+                          },
+                          "src": "929:15:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "&&",
+                        "rightExpression": {
+                          "commonType": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          },
+                          "id": 3155,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "id": 3153,
+                            "name": "codehash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3147,
+                            "src": "948:8:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "!=",
+                          "rightExpression": {
+                            "id": 3154,
+                            "name": "ACCOUNT_HASH",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3138,
+                            "src": "960:12:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "src": "948:24:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "929:43:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "id": 3157,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "928:45:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 3145,
+                  "id": 3158,
+                  "nodeType": "Return",
+                  "src": "921:52:22"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 3139,
+              "nodeType": "StructuredDocumentation",
+              "src": "316:261:22",
+              "text": " Returns whether the target address is a contract\n @dev This function will return false if invoked during the constructor of a contract.\n @param _address address of the account to check\n @return Whether the target address is a contract"
+            },
+            "id": 3160,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3141,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3160,
+                  "src": "600:16:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3140,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "600:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "599:18:22"
+            },
+            "returnParameters": {
+              "id": 3145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3144,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3160,
+                  "src": "641:4:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 3143,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:4:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:6:22"
+            },
+            "scope": 3161,
+            "src": "580:398:22",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 3162,
+        "src": "124:856:22"
+      }
+    ],
+    "src": "0:980:22"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "@0xsequence/erc-1155/contracts/utils/Address.sol",
+      "exportedSymbols": {
+        "Address": [
+          3161
+        ]
+      },
+      "license": "UNLICENSED"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.7",
+            ".4"
+          ]
+        },
+        "id": 3134,
+        "name": "PragmaDirective",
+        "src": "0:22:22"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "library",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            3161
+          ],
+          "name": "Address",
+          "scope": 3162
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": " Utility library of inline functions on addresses"
+            },
+            "id": 3135,
+            "name": "StructuredDocumentation",
+            "src": "64:59:22"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "mutability": "constant",
+              "name": "ACCOUNT_HASH",
+              "scope": 3161,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes32",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bytes32",
+                  "type": "bytes32"
+                },
+                "id": 3136,
+                "name": "ElementaryTypeName",
+                "src": "204:7:22"
+              },
+              {
+                "attributes": {
+                  "hexvalue": "307863356432343630313836663732333363393237653764623264636337303363306535303062363533636138323237336237626661643830343564383561343730",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "token": "number",
+                  "type": "int_const 8947...(69 digits omitted)...1552",
+                  "value": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+                },
+                "id": 3137,
+                "name": "Literal",
+                "src": "245:66:22"
+              }
+            ],
+            "id": 3138,
+            "name": "VariableDeclaration",
+            "src": "204:107:22"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "isContract",
+              "scope": 3161,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " Returns whether the target address is a contract\n @dev This function will return false if invoked during the constructor of a contract.\n @param _address address of the account to check\n @return Whether the target address is a contract"
+                },
+                "id": 3139,
+                "name": "StructuredDocumentation",
+                "src": "316:261:22"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_address",
+                      "scope": 3160,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 3140,
+                        "name": "ElementaryTypeName",
+                        "src": "600:7:22"
+                      }
+                    ],
+                    "id": 3141,
+                    "name": "VariableDeclaration",
+                    "src": "600:16:22"
+                  }
+                ],
+                "id": 3142,
+                "name": "ParameterList",
+                "src": "599:18:22"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 3160,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 3143,
+                        "name": "ElementaryTypeName",
+                        "src": "641:4:22"
+                      }
+                    ],
+                    "id": 3144,
+                    "name": "VariableDeclaration",
+                    "src": "641:4:22"
+                  }
+                ],
+                "id": 3145,
+                "name": "ParameterList",
+                "src": "640:6:22"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        3147
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "codehash",
+                          "scope": 3159,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bytes32",
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 3146,
+                            "name": "ElementaryTypeName",
+                            "src": "653:7:22"
+                          }
+                        ],
+                        "id": 3147,
+                        "name": "VariableDeclaration",
+                        "src": "653:16:22"
+                      }
+                    ],
+                    "id": 3148,
+                    "name": "VariableDeclarationStatement",
+                    "src": "653:16:22"
+                  },
+                  {
+                    "attributes": {
+                      "evmVersion": "istanbul",
+                      "externalReferences": [
+                        {
+                          "declaration": 3141,
+                          "isOffset": false,
+                          "isSlot": false,
+                          "src": "905:8:22",
+                          "valueSize": 1
+                        },
+                        {
+                          "declaration": 3147,
+                          "isOffset": false,
+                          "isSlot": false,
+                          "src": "881:8:22",
+                          "valueSize": 1
+                        }
+                      ],
+                      "operations": "{\n    codehash := extcodehash(_address)\n}"
+                    },
+                    "children": [],
+                    "id": 3149,
+                    "name": "InlineAssembly",
+                    "src": "870:46:22"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 3145
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "commonType": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "&&",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "commonType": {
+                                    "typeIdentifier": "t_bytes32",
+                                    "typeString": "bytes32"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "!=",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 3147,
+                                      "type": "bytes32",
+                                      "value": "codehash"
+                                    },
+                                    "id": 3150,
+                                    "name": "Identifier",
+                                    "src": "929:8:22"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "hexvalue": "307830",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0x0"
+                                    },
+                                    "id": 3151,
+                                    "name": "Literal",
+                                    "src": "941:3:22"
+                                  }
+                                ],
+                                "id": 3152,
+                                "name": "BinaryOperation",
+                                "src": "929:15:22"
+                              },
+                              {
+                                "attributes": {
+                                  "commonType": {
+                                    "typeIdentifier": "t_bytes32",
+                                    "typeString": "bytes32"
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "!=",
+                                  "type": "bool"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 3147,
+                                      "type": "bytes32",
+                                      "value": "codehash"
+                                    },
+                                    "id": 3153,
+                                    "name": "Identifier",
+                                    "src": "948:8:22"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 3138,
+                                      "type": "bytes32",
+                                      "value": "ACCOUNT_HASH"
+                                    },
+                                    "id": 3154,
+                                    "name": "Identifier",
+                                    "src": "960:12:22"
+                                  }
+                                ],
+                                "id": 3155,
+                                "name": "BinaryOperation",
+                                "src": "948:24:22"
+                              }
+                            ],
+                            "id": 3156,
+                            "name": "BinaryOperation",
+                            "src": "929:43:22"
+                          }
+                        ],
+                        "id": 3157,
+                        "name": "TupleExpression",
+                        "src": "928:45:22"
+                      }
+                    ],
+                    "id": 3158,
+                    "name": "Return",
+                    "src": "921:52:22"
+                  }
+                ],
+                "id": 3159,
+                "name": "Block",
+                "src": "647:331:22"
+              }
+            ],
+            "id": 3160,
+            "name": "FunctionDefinition",
+            "src": "580:398:22"
+          }
+        ],
+        "id": 3161,
+        "name": "ContractDefinition",
+        "src": "124:856:22"
+      }
+    ],
+    "id": 3162,
+    "name": "SourceUnit",
+    "src": "0:980:22"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.4+commit.3f05b770.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-01T03:09:33.778Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "Utility library of inline functions on addresses",
+    "version": 1
+  }
+}
